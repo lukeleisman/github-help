@@ -95,6 +95,23 @@ INMASWk1	git@github.com:INMAS-Math/Workshop-01.git (fetch)
 INMASWk1	git@github.com:INMAS-Math/Workshop-01.git (push)
 ```
 
-## 4. Your first download and upload!
+## 4. Editing files and uploading your changes.
 
-Instructions coming soon.
+Now you're ready to make changes to files. After you've made an edit, you need to add your edits to git so that it knows to track your changes:
+
+`git add .`
+
+This adds all the files. To only add a specific file, state them by name:
+
+`git add Notebook_06.ipynb`
+
+You then commit your changes. Each commit creates a local record/ check point of file changes.
+
+```git commit -m "typo fix"```
+
+The `-m` option lets you add a message, in this case that a typo was fixed, describing whatever changed in this update.
+
+Finally, you can push your changes to the remote repository:
+
+```git push```
+
