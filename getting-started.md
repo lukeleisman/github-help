@@ -1,8 +1,21 @@
-# Getting Started with GITHUB:
+# Getting Started with GitHub and Git:
 
 GitHub is a web-based repository hosting service, that is, a place for storing code where you can track changes, and where others can also make changes. GitHub is a repository for Git, which is a  "distributed version control system," that is, software for tracking changes in your code. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files. 
 
-The main documentation for GitHub is [here](https://docs.github.com/en). These instructions try to synthesize the important things I needed to actually get Git and GitHub up, running, and working together. 
+Unfortunately there's a bit of a learning curve with Github and Git, but once you get the hang of it, it is a powerful too. The main documentation for GitHub is [here](https://docs.github.com/en). These instructions try to synthesize the important things I needed to actually get Git and GitHub up, running, and working together. 
+
+Note that there are many useful tutorials online, just none with exactly the info I needed. So if things aren't making sense on this site, here are some other pages to try:
+[Mark's Blog](http://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+
+## 0. A brief introduction to how git works
+![Git diagram from Oliver Steel's Blog](https://images.osteele.com/2008/git-transport.png)
+
+One of the confusing things about Git is to keep track of all the different places information gets stored. These are a couple of helpful diagrams for keeping things straight.
+- Your local workspace is the folder where you have your code on your computer, and where it all gets stored.
+- Your local repository is the container where all your versions get stored by git.
+- The index is a container that creates a buffer between your local repository and your workspace. Changes from your workspace will get "staged" to be added to your local repository using the `add` command discussed below. You can bypass this container using `commit -a` but it can be quite helpful, as we'll see.
+- The remote repository is a place in the cloud/ online (typically on Github) where all the code that everyone can access is stored. This is also useful for working between devices, and if your local computer fails.
+
 
 ## 1. Make sure you have git installed locally. 
 [Here is a link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) with installation instructions, and how to check if it is already installed.
@@ -40,14 +53,21 @@ Your identification has been saved in /Users/lleisman/.ssh/id_ed25519
 Your public key has been saved in /Users/lleisman/.ssh/id_ed25519.pub
 ```
 2. Next **start the ssh agent** in the background by typing the following command:
-```eval "$(ssh-agent -s)"```
+```
+eval "$(ssh-agent -s)"
+```
 
 3. **Update the ssh config file.**
-    To do this check and see if your ssh config file exists: 
-```open ~/.ssh/config```
+To do this check and see if your ssh config file exists: 
+```
+open ~/.ssh/config
+```
 
-    If it doesn’t exist, create a blank file with the touch command (if this command doesn’t work it’s likely because the .ssh directory doesn’t exist because you didn’t use the default location).
-```touch ~/.ssh/config```
+If it doesn’t exist, create a blank file with the touch command (if this command doesn’t work it’s likely because the .ssh directory doesn’t exist because you didn’t use the default location).
+
+```
+touch ~/.ssh/config
+```
 
    Now, open the file 
 ```open ~/.ssh/config```
@@ -76,13 +96,17 @@ Navigate to the directory you want to story your files in, and then download a c
 ```
 git clone git@github.com:INMAS-Math/Workshop-01.git
 ```
-Alternatively, initialize the local directory ([here's](https://stackoverflow.com/questions/3620633/what-is-the-difference-between-pull-and-clone-in-git) a helpful page on different approaches): 
+Now initialize the local directory ([here's](https://stackoverflow.com/questions/3620633/what-is-the-difference-between-pull-and-clone-in-git) a helpful page on different approaches): 
 
-`git init`
+```
+git init
+```
 
-Now link this to a remote repository. You can find the address of the repository you are interested in by going to the relevant github page, and clicking the down arrow by the big Code button. Since you have an ssh key set up, your remote url now needs to be the ssh url. The command we use to do this is [git remote](https://articles.assembla.com/en/articles/1136998-how-to-add-a-new-remote-to-your-git-repo) with relevant parameters. For the INMAS workshop #1 repository I used the following (INMASWk1 is just the name I'm telling Git to associate with that link).
+If you already have a local directory with some code, you can initialize it, and then link it to the remote repository. You can find the address of the repository you are interested in by going to the relevant github page, and clicking the down arrow by the big Code button. Since you have an ssh key set up, your remote url now needs to be the ssh url. The command we use to do this is [git remote](https://articles.assembla.com/en/articles/1136998-how-to-add-a-new-remote-to-your-git-repo) with relevant parameters. For the INMAS workshop #1 repository I used the following (INMASWk1 is just the name I'm telling Git to associate with that link).
 
-`git remote add INMASWk1 git@github.com:INMAS-Math/Workshop-01.git`
+```
+git remote add INMASWk1 git@github.com:INMAS-Math/Workshop-01.git
+```
 
 Note that if you need to change the url in the future, you can use the set-url option:
 
@@ -97,21 +121,55 @@ INMASWk1	git@github.com:INMAS-Math/Workshop-01.git (push)
 
 ## 4. Editing files and uploading your changes.
 
-Now you're ready to make changes to files. After you've made an edit, you need to add your edits to git so that it knows to track your changes:
+Now you're ready to make changes to files. After you've made an edit, you [need to add](https://softwareengineering.stackexchange.com/questions/283182/why-do-i-have-to-run-git-add-after-making-changes) or "stage" your edited files to your local git repository so that it knows to track your changes:
 
-`git add .`
+```
+git add .
+```
 
-This adds all the files. To only add a specific file, state them by name:
+This adds all the files. To only add a specific file, state it by name:
 
-`git add Notebook_06.ipynb`
+```
+git add Notebook_06.ipynb
+```
 
-You then commit your changes. Each commit creates a local record/ check point of file changes.
+You then commit your changes. Each commit creates a local check point of file changes; you can think of a a commit as like a save or snapshot of everything that is currently staged by the git add command. "Committed snapshots can be thought of as “safe” versions of a project - Git will never change them unless you explicitly ask it to." (Quoted from [this page](https://www.atlassian.com/git/tutorials/saving-changes/git-commit))
 
-```git commit -m "typo fix"```
+```
+git commit -m "typo fix"
+```
 
 The `-m` option lets you add a message, in this case that a typo was fixed, describing whatever changed in this update.
 
 Finally, you can push your changes to the remote repository:
 
-```git push```
+```
+git push INMASWk1 main
+```
+
+This pushes your main branch to INMASWk1, which was what we named the remote repo above. Generally if this is stored as the default, you can also just run:
+
+```
+git push
+```
+
+## 5. Downloading changes to the code from others
+
+There are a couple of ways to update your code with changes from the remote server. One way is to use a pull command:
+```
+git pull INMASWk1 main
+```
+
+A better way, advocated for [here](http://longair.net/blog/2009/04/16/git-fetch-and-merge/), among other places, is to use git fetch and git merge:
+```
+git fetch origin master
+git merge origin/master
+```
+[Here](https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch) is a really helpful discussion of the difference.
+
+## 6. On Merging: what happens when both you and others have done some work?
+
+[One possibly helpful page](https://happygitwithr.com/pull-tricky)
+
+
 
