@@ -1,6 +1,6 @@
 # Getting Started with GitHub and Git:
 
-GitHub is a web-based repository hosting service, that is, a place for storing code where you can track changes, and where others can also make changes. GitHub is a repository for Git, which is a  "distributed version control system," that is, software for tracking changes in your code. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files. 
+GitHub is a web-based repository hosting service, that is, a place for storing code where you can track changes, and where others can also make changes. GitHub is a repository for Git, which is a  "distributed version control system," that is, software for tracking changes in your code. It is designed for coordinating work among programmers, but it can be used to track changes in any set of files.
 
 Unfortunately there's a bit of a learning curve with Github and Git, but once you get the hang of it, it is a powerful too. The main documentation for GitHub is [here](https://docs.github.com/en). These instructions try to synthesize the important things I needed to actually get Git and GitHub up, running, and working together. 
 
@@ -10,7 +10,7 @@ Note that there are many useful tutorials online, just none with exactly the inf
 ## 0. A brief introduction to how git works
 ![Git diagram from Oliver Steel's Blog](https://images.osteele.com/2008/git-transport.png)
 
-One of the confusing things about Git is to keep track of all the different places information gets stored. These are a couple of helpful diagrams for keeping things straight.
+One of the tricky things about Git is keeping track of all the different places information gets stored. These are a couple of helpful diagrams for keeping things straight.
 - Your local workspace is the folder where you have your code on your computer, and where it all gets stored.
 - Your local repository is the container where all your versions get stored by git.
 - The index is a container that creates a buffer between your local repository and your workspace. Changes from your workspace will get "staged" to be added to your local repository using the `add` command discussed below. You can bypass this container using `commit -a` but it can be quite helpful, as we'll see.
@@ -133,13 +133,13 @@ This adds all the files. To only add a specific file, state it by name:
 git add Notebook_06.ipynb
 ```
 
-You then commit your changes. Each commit creates a local check point of file changes; you can think of a a commit as like a save or snapshot of everything that is currently staged by the git add command. "Committed snapshots can be thought of as “safe” versions of a project - Git will never change them unless you explicitly ask it to." (Quoted from [this page](https://www.atlassian.com/git/tutorials/saving-changes/git-commit))
+You then commit your changes. Each commit creates a local check point of file changes; you can think of a a commit as like a save or snapshot of everything that is currently staged by the git add command. "Committed snapshots can be thought of as “safe” versions of a project - Git will never change them unless you explicitly ask it to." (Quoted from [this helpful page](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)) 
 
 ```
 git commit -m "typo fix"
 ```
 
-The `-m` option lets you add a message, in this case that a typo was fixed, describing whatever changed in this update.
+The `-m` option lets you add a message, in this case that a typo was fixed, describing whatever changed in this update. You can read more about commits [here](https://stackoverflow.com/questions/43970559/what-is-exactly-meaning-of-commit-command-in-git)
 
 Finally, you can push your changes to the remote repository:
 
