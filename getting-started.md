@@ -96,13 +96,13 @@ Navigate to the directory you want to story your files in, and then download a c
 ```
 git clone git@github.com:INMAS-Math/Workshop-01.git
 ```
-Now initialize the local directory ([here's](https://stackoverflow.com/questions/3620633/what-is-the-difference-between-pull-and-clone-in-git) a helpful page on different approaches): 
+Now initialize the local directory:  
 
 ```
 git init
 ```
 
-If you already have a local directory with some code, you can initialize it, and then link it to the remote repository. You can find the address of the repository you are interested in by going to the relevant github page, and clicking the down arrow by the big Code button. Since you have an ssh key set up, your remote url now needs to be the ssh url. The command we use to do this is [git remote](https://articles.assembla.com/en/articles/1136998-how-to-add-a-new-remote-to-your-git-repo) with relevant parameters. For the INMAS workshop #1 repository I used the following (INMASWk1 is just the name I'm telling Git to associate with that link).
+If you already have a local directory with some code, you can initialize it, and then link it to the remote repository. You can find the address of the repository you are interested in by going to the relevant github page, and clicking the down arrow by the big Code button. Since you have an ssh key set up, your remote url now needs to be the ssh url. The command we use to do this is [git remote](https://articles.assembla.com/en/articles/1136998-how-to-add-a-new-remote-to-your-git-repo) with relevant parameters. For the INMAS workshop #1 repository I used the following (INMASWk1 is just the name I'm telling Git to associate with that link; note that typically git documentation calls the remote repository `origin` since it's the origin of anything we download).
 
 ```
 git remote add INMASWk1 git@github.com:INMAS-Math/Workshop-01.git
@@ -118,6 +118,9 @@ git remote -v
 INMASWk1	git@github.com:INMAS-Math/Workshop-01.git (fetch)
 INMASWk1	git@github.com:INMAS-Math/Workshop-01.git (push)
 ```
+
+Note that there are other alternative approaches to `git clone` using, e.g. `git pull` or `git fetch`. Read more [here](https://stackoverflow.com/questions/3620633/what-is-the-difference-between-pull-and-clone-in-git).
+
 
 ## 4. Editing files and uploading your changes.
 
@@ -141,7 +144,7 @@ git commit -m "typo fix"
 
 The `-m` option lets you add a message, in this case that a typo was fixed, describing whatever changed in this update. You can read more about commits [here](https://stackoverflow.com/questions/43970559/what-is-exactly-meaning-of-commit-command-in-git)
 
-Finally, you can push your changes to the remote repository:
+Finally, you can push your changes to the remote repository (main specifies the main branch):
 
 ```
 git push INMASWk1 main
@@ -170,6 +173,11 @@ git merge origin/master
 ## 6. On Merging: what happens when both you and others have done some work?
 
 [One possibly helpful page](https://happygitwithr.com/pull-tricky)
+
+## 7. On fixing problems
+If you need to overwrite changes you've been making locally, you can follow [this procedure](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)
+
+As long as things are backed up in the remote repository, you can just completely delete the .git folder that contains your local repository (all your local backups). For example, you might do this if you ran a `git init` command in the wrong folder and want to undo the init. You can do this using `rm -rf .git` as described [here](https://stackoverflow.com/questions/3212459/is-there-a-command-to-undo-git-init)
 
 
 
