@@ -188,5 +188,9 @@ If you exit a merge incorrectly, you may get the error: "You have not concluded 
 
 ## 8. Other resources:
 [https://tutsplus.com/t/courses/search/git](https://tutsplus.com/t/courses/search/git)
+
 [Using vim](https://stackoverflow.com/questions/13507430/git-commit-in-terminal-opens-vim-but-cant-get-back-to-terminal) when you get thrown into a text editor
+
 [Also on vim](https://unix.stackexchange.com/questions/181280/how-to-exit-a-git-merge-asking-for-commit-message)
+
+(For Luke, development note: use Pandas Jupyter Git google doc)
