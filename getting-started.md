@@ -10,11 +10,12 @@ Note that there are many useful tutorials online, just none with exactly the inf
 ## 0. A brief introduction to how git works
 ![Git diagram from Oliver Steel's Blog](https://images.osteele.com/2008/git-transport.png)
 
-One of the tricky things about Git is keeping track of all the different places information gets stored. These are a couple of helpful diagrams for keeping things straight.
+One of the tricky things about Git is keeping track of all the different places information gets stored. Above is a couple of helpful diagrams for keeping things straight. There are three main places/containers that your work is stored:
 - Your local workspace is the folder where you have your code on your computer, and where it all gets stored.
 - Your local repository is the container where all your versions get stored by git.
-- The index is a container that creates a buffer between your local repository and your workspace. Changes from your workspace will get "staged" to be added to your local repository using the `add` command discussed below. You can bypass this container using `commit -a` but it can be quite helpful, as we'll see.
 - The remote repository is a place in the cloud/ online (typically on Github) where all the code that everyone can access is stored. This is also useful for working between devices, and if your local computer fails.
+There also is an "index" container that buffers between your local repository and your workspace, another place where changes are stored.
+- The index is a container designed to be a buffer between your local repository and your workspace. Changes from your workspace will get "staged" to be added to your local repository using the `add` command discussed below. You can bypass this container using `commit -a` but it can be quite helpful, as we'll see.
 
 
 ## 1. Make sure you have git installed locally. 
