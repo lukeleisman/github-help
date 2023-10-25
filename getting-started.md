@@ -166,19 +166,27 @@ git pull INMASWk1 main
 
 A better way, advocated for [here](http://longair.net/blog/2009/04/16/git-fetch-and-merge/), among other places, is to use git fetch and git merge:
 ```
-git fetch origin master
-git merge origin/master
+git fetch INMASWk1 main
+git merge INMASWk1/main
 ```
 [Here](https://stackoverflow.com/questions/292357/what-is-the-difference-between-git-pull-and-git-fetch) is a really helpful discussion of the difference.
 
 ## 6. On Merging: what happens when both you and others have done some work?
 
+[One quite helpful page](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+
 [One possibly helpful page](https://happygitwithr.com/pull-tricky)
+
 
 ## 7. On fixing problems
 If you need to overwrite changes you've been making locally, you can follow [this procedure](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)
 
 As long as things are backed up in the remote repository, you can just completely delete the .git folder that contains your local repository (all your local backups). For example, you might do this if you ran a `git init` command in the wrong folder and want to undo the init. You can do this using `rm -rf .git` as described [here](https://stackoverflow.com/questions/3212459/is-there-a-command-to-undo-git-init)
 
+If you exit a merge incorrectly, you may get the error: "You have not concluded your merge (MERGE_HEAD exists)." I found aborting the merger and trying again fixed it as described [here](https://stackoverflow.com/questions/11646107/you-have-not-concluded-your-merge-merge-head-exists).
 
 
+## 8. Other resources:
+[https://tutsplus.com/t/courses/search/git](https://tutsplus.com/t/courses/search/git)
+[Using vim](https://stackoverflow.com/questions/13507430/git-commit-in-terminal-opens-vim-but-cant-get-back-to-terminal) when you get thrown into a text editor
+[Also on vim](https://unix.stackexchange.com/questions/181280/how-to-exit-a-git-merge-asking-for-commit-message)
