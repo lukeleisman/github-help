@@ -189,6 +189,22 @@ If you exit a merge incorrectly, you may get the error: "You have not concluded 
 ## 8. Other resources:
 [https://tutsplus.com/t/courses/search/git](https://tutsplus.com/t/courses/search/git)
 
+
+…or create a new repository on the command line
+```
+echo "# LKbudget" >> README.md
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin git@github.com:lukeleisman/LKbudget.git
+  git push -u origin main
+…or push an existing repository from the command line
+git remote add origin git@github.com:lukeleisman/LKbudget.git
+  git branch -M main
+  git push -u origin main
+```
+
 [Using vim](https://stackoverflow.com/questions/13507430/git-commit-in-terminal-opens-vim-but-cant-get-back-to-terminal) when you get thrown into a text editor
 
 [Also on vim](https://unix.stackexchange.com/questions/181280/how-to-exit-a-git-merge-asking-for-commit-message)
