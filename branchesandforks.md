@@ -18,7 +18,7 @@ https://stackoverflow.com/questions/3611256/forking-vs-branching-in-github
 Note that checkout -b both creates the branch and switches you to be modifying that branch. To switch between branches use checkout without the -b.
 https://stackoverflow.com/questions/40307960/how-to-create-a-branch-in-github
 - to view all branches:
-  ``` git branch ```
+  ``` git branch -a```
 
 Suppose we've just done some work but then realize we aren't on the branch we want to be on (we almost committed the work to the wrong place!).
 If you haven't committed yet, you can stash your work, move to the branch you want to be on (or create a new branch), and then move the work over to the branch. 
