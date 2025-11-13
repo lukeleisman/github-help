@@ -28,14 +28,19 @@ git checkout -b newbranchname
 git stash pop
 ```
 
-
-Suppose you need to undo a local commit. You can do this using a reset command:
+Generally speaking, best practice is to always work in branches, as we describe on the <a href="https://github.com/lukeleisman/github-help/blob/main/commandsandworkflow.md"> Commands and Workflow </a> page.
+In brief:
+- Use these commands:
+  ```
+git checkout -b mybugbranch
+git status
+git add --all
+git status
+git commit -m "added a change to fix mybug"
+git push origin mybugbranch
 ```
-git commit -m "Something terribly misguided" # (0: Your Accident)
-git reset HEAD~
-# === If you just want to undo the commit, stop here! ===
-[ edit files as necessary ]                   
-git add .                                    
-git commit -c ORIG_HEAD
-```                    
-For more info, see this helpful page: https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git 
+Repeat add, commit, and push commands until the project is done/ issue is fixed.
+Then on the github repo take out a pull request (a proposal to merge with the main branch), merge the branch in, and then delete the working branch.
+
+Branching can get fairly complicated, here's a rundown on how to handle some of these situations:
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
