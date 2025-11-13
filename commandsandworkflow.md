@@ -55,4 +55,14 @@ git checkout 4-add-google-drive-link
 
 When you merge the branch back into the main branch with whatever fixes you've come up with it will automatically close the issue!
 
-
+## Other situations that may come up
+Suppose you need to undo a local commit. You can do this using a reset command:
+```
+git commit -m "Something terribly misguided" # (0: Your Accident)
+git reset HEAD~
+# === If you just want to undo the commit, stop here! ===
+[ edit files as necessary ]                   
+git add .                                    
+git commit -c ORIG_HEAD
+```                    
+For more info, see this helpful page: https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git 
