@@ -29,9 +29,9 @@ git stash pop
 ```
 
 Generally speaking, best practice is to always work in branches, as we describe on the <a href="https://github.com/lukeleisman/github-help/blob/main/commandsandworkflow.md"> Commands and Workflow </a> page.
-In brief:
-- Use these commands:
-  ```
+In brief, use these commands:
+
+```
 git checkout -b mybugbranch
 git status
 git add --all
@@ -39,6 +39,7 @@ git status
 git commit -m "added a change to fix mybug"
 git push origin mybugbranch
 ```
+
 Repeat add, commit, and push commands until the project is done/ issue is fixed.
 Then on the github repo take out a pull request (a proposal to merge with the main branch), merge the branch in, and then delete the working branch.
 
